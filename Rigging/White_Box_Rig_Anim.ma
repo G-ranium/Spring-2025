@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: White_Box_Rig_Anim.ma
-//Last modified: Sun, Jan 12, 2025 02:19:02 PM
+//Last modified: Mon, Jan 13, 2025 02:09:21 PM
 //Codeset: 1252
 file -rdi 1 -ns "White_Box_Rig" -rfn "White_Box_RigRN" -op "v=0;" -typ "mayaAscii"
 		 "D:/Spring-2025/Rigging/White_Box_Rig.ma";
@@ -13,17 +13,17 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19045)";
-fileInfo "UUID" "E1B48530-4E8E-A15D-A37A-A9B2989B22EB";
+fileInfo "UUID" "4CAC8C47-4EDE-799C-6A72-9A8847F7E420";
 createNode transform -s -n "persp";
 	rename -uid "F64D7770-4F2A-3816-5758-34BF0A7AB306";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 17.325481737606943 6.6065618449269046 -1.4465806522021352 ;
-	setAttr ".r" -type "double3" -8.1383527292593065 96.59999999999792 0 ;
+	setAttr ".t" -type "double3" 13.083221625190918 8.4312709245722708 15.947247963185914 ;
+	setAttr ".r" -type "double3" -8.7383527292907708 36.999999999997698 9.9562148234401609e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "EBA4FAFE-406C-409B-8FEA-52865FF69B8C";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 15.998028914728495;
+	setAttr ".coi" 20.778180679411875;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -69,33 +69,33 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".coi" 1000.1;
-	setAttr ".ow" 14.309671500770026;
+	setAttr ".ow" 20.309671500770026;
 	setAttr ".imn" -type "string" "side";
 	setAttr ".den" -type "string" "side_depth";
 	setAttr ".man" -type "string" "side_mask";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "4E527139-4071-0CB2-C1B9-05A46F04E847";
+	rename -uid "6D7FE527-4640-83D6-E05C-90B84F8B7A57";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "F1A7CAE4-4DF0-9C8C-6A01-87BC1FF134C5";
+	rename -uid "16FE21BE-4DC3-5899-1B8E-97A0AC6BFC69";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "0EE9C5CC-400A-0A9C-7D3F-1FA387841332";
+	rename -uid "1D0AA8A3-4390-8EF9-1242-61B47EB8B8E0";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "7A7FF471-408A-900E-A160-F18C6C7F7EE5";
+	rename -uid "84E51C01-474D-60B3-7C2E-C9A46088FDAD";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "3FC7F6AD-4470-095C-87B0-869105E26A97";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "ED36357E-43EB-965A-46C8-43A8087E7394";
+	rename -uid "E8FE69B7-4F8B-8606-90C2-C3BE30B05B12";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "39CFC0D2-4F1A-70AD-4C30-0DA6327A4336";
 	setAttr ".g" yes;
 createNode reference -n "White_Box_RigRN";
 	rename -uid "987B9182-49B4-4223-42B4-E98F7A4F421B";
-	setAttr -s 15 ".phl";
+	setAttr -s 27 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -111,18 +111,31 @@ createNode reference -n "White_Box_RigRN";
 	setAttr ".phl[13]" 0;
 	setAttr ".phl[14]" 0;
 	setAttr ".phl[15]" 0;
+	setAttr ".phl[16]" 0;
+	setAttr ".phl[17]" 0;
+	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
+	setAttr ".phl[21]" 0;
+	setAttr ".phl[22]" 0;
+	setAttr ".phl[23]" 0;
+	setAttr ".phl[24]" 0;
+	setAttr ".phl[25]" 0;
+	setAttr ".phl[26]" 0;
+	setAttr ".phl[27]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"White_Box_RigRN"
 		"White_Box_RigRN" 0
-		"White_Box_RigRN" 32
-		2 "|White_Box_Rig:Waist" "translate" " -type \"double3\" 0 -0.36586192225437664 0"
+		"White_Box_RigRN" 58
+		2 "|White_Box_Rig:Waist" "translate" " -type \"double3\" 0 -0.46303726734806894 0"
 		
-		2 "|White_Box_Rig:Waist|White_Box_Rig:Right_Thigh" "rotate" " -type \"double3\" -31.44720427815131103 0 0"
+		2 "|White_Box_Rig:Waist" "rotate" " -type \"double3\" 0 0 0"
+		2 "|White_Box_Rig:Waist|White_Box_Rig:Right_Thigh" "rotate" " -type \"double3\" -40.72360213907565196 0 0"
 		
 		2 "|White_Box_Rig:Waist|White_Box_Rig:Right_Thigh|White_Box_Rig:Right_Shin" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" 25 0 0"
 		2 "|White_Box_Rig:Waist|White_Box_Rig:Right_Thigh|White_Box_Rig:Right_Shin|White_Box_Rig:Right_Heel" 
-		"rotate" " -type \"double3\" 20.53455249707889152 0 0"
+		"rotate" " -type \"double3\" 10.26727624853944931 0 0"
 		2 "|White_Box_Rig:Waist|White_Box_Rig:Right_Thigh|White_Box_Rig:Right_Shin|White_Box_Rig:Right_Heel|White_Box_Rig:Right_HeelShape" 
 		"dispResolution" " 0"
 		2 "|White_Box_Rig:Waist|White_Box_Rig:Right_Thigh|White_Box_Rig:Right_Shin|White_Box_Rig:Right_Heel|White_Box_Rig:Right_HeelShape" 
@@ -133,22 +146,48 @@ createNode reference -n "White_Box_RigRN";
 		"dispResolution" " 0"
 		2 "|White_Box_Rig:Waist|White_Box_Rig:Right_Thigh|White_Box_Rig:Right_Shin|White_Box_Rig:Right_Heel|White_Box_Rig:Right_Toes|White_Box_Rig:Right_ToesShape" 
 		"displaySmoothMesh" " 0"
-		2 "|White_Box_Rig:Waist|White_Box_Rig:Left_Thigh" "rotate" " -type \"double3\" 35.40675280190673391 0 0"
+		2 "|White_Box_Rig:Waist|White_Box_Rig:Left_Thigh" "rotate" " -type \"double3\" 35.44993783160771983 0 0"
 		
 		2 "|White_Box_Rig:Waist|White_Box_Rig:Left_Thigh|White_Box_Rig:Left_Shin" 
-		"rotate" " -type \"double3\" 23.99342708228225263 0 0"
+		"rotate" " -type \"double3\" 26.29390147934305233 0 0"
 		2 "|White_Box_Rig:Waist|White_Box_Rig:Left_Thigh|White_Box_Rig:Left_Shin|White_Box_Rig:Left_Heel" 
-		"rotate" " -type \"double3\" 15.68807714289355104 0 0"
+		"rotate" " -type \"double3\" 9.50138563431751848 0 0"
 		2 "|White_Box_Rig:Waist|White_Box_Rig:Left_Thigh|White_Box_Rig:Left_Shin|White_Box_Rig:Left_Heel|White_Box_Rig:Left_Toes" 
-		"rotate" " -type \"double3\" -38.97129566653827482 0 0"
+		"rotate" " -type \"double3\" -19.48564783326914451 0 0"
+		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso" "rotate" " -type \"double3\" 3.00000000000000044 0 0"
+		
+		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest" "rotate" 
+		" -type \"double3\" 0 -6.98042785616750106 0"
 		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm" 
-		"rotate" " -type \"double3\" 0 45 -85"
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm" 
+		"rotate" " -type \"double3\" 0 -47.66089 -85"
 		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm|White_Box_Rig:Left_Forearm" 
-		"rotate" " -type \"double3\" 0 -25 0"
+		"rotate" " -type \"double3\" 0 -40.32342335648974796 0"
+		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm|White_Box_Rig:Left_Forearm|White_Box_Rig:Right_Hand1" 
+		"rotate" " -type \"double3\" 0 0 -8.49448813482922915"
+		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm|White_Box_Rig:Left_Forearm|White_Box_Rig:Right_Hand1|White_Box_Rig:Left_Knuckle" 
+		"rotate" " -type \"double3\" 0 0 -10.58440904582524134"
+		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm|White_Box_Rig:Left_Forearm|White_Box_Rig:Right_Hand1|White_Box_Rig:Left_Knuckle|White_Box_Rig:Left_Knuckle_2" 
+		"rotate" " -type \"double3\" 0 0 -14.11051611222963231"
+		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm|White_Box_Rig:Left_Forearm|White_Box_Rig:Right_Hand1|White_Box_Rig:Left_Knuckle|White_Box_Rig:Left_Knuckle_2|White_Box_Rig:Left_Knuckle_3" 
+		"rotate" " -type \"double3\" 0 0 -21.91631906406250963"
 		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Right_Upper_Arm" 
-		"rotate" " -type \"double3\" 0 45 85"
+		"rotate" " -type \"double3\" 0 -46.54427718750000054 85"
 		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Right_Upper_Arm|White_Box_Rig:Right_Forearm" 
-		"rotate" " -type \"double3\" 0 25 0"
+		"rotate" " -type \"double3\" 0 33.51713809003599209 0"
+		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Right_Upper_Arm|White_Box_Rig:Right_Forearm|White_Box_Rig:Right_Hand" 
+		"rotate" " -type \"double3\" 0 0 16.3735949256698845"
+		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Right_Upper_Arm|White_Box_Rig:Right_Forearm|White_Box_Rig:Right_Hand|White_Box_Rig:Right_Knuckle" 
+		"rotate" " -type \"double3\" 0 0 8.76431663649865378"
+		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Right_Upper_Arm|White_Box_Rig:Right_Forearm|White_Box_Rig:Right_Hand|White_Box_Rig:Right_Knuckle|White_Box_Rig:Right_Knuckle_2" 
+		"rotate" " -type \"double3\" 0 0 16.07397577710904812"
+		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Right_Upper_Arm|White_Box_Rig:Right_Forearm|White_Box_Rig:Right_Hand|White_Box_Rig:Right_Knuckle|White_Box_Rig:Right_Knuckle_2|White_Box_Rig:Right_Knuckle_3" 
+		"rotate" " -type \"double3\" 0 0 15.28703595845677299"
+		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Neck" 
+		"rotate" " -type \"double3\" 5 0 0"
+		2 "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Neck|White_Box_Rig:Head" 
+		"rotate" " -type \"double3\" 0 1.74510696404187526 0"
 		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist.translateY" "White_Box_RigRN.placeHolderList[1]" 
 		""
 		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Right_Thigh.rotateX" 
@@ -167,18 +206,42 @@ createNode reference -n "White_Box_RigRN";
 		"White_Box_RigRN.placeHolderList[8]" ""
 		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Left_Thigh|White_Box_Rig:Left_Shin|White_Box_Rig:Left_Heel|White_Box_Rig:Left_Toes.rotateX" 
 		"White_Box_RigRN.placeHolderList[9]" ""
-		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm.rotateY" 
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso.rotateX" 
 		"White_Box_RigRN.placeHolderList[10]" ""
-		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm.rotateZ" 
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest.rotateY" 
 		"White_Box_RigRN.placeHolderList[11]" ""
-		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm|White_Box_Rig:Left_Forearm.rotateY" 
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm.rotateY" 
 		"White_Box_RigRN.placeHolderList[12]" ""
-		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Right_Upper_Arm.rotateY" 
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm.rotateZ" 
 		"White_Box_RigRN.placeHolderList[13]" ""
-		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Right_Upper_Arm.rotateZ" 
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm|White_Box_Rig:Left_Forearm.rotateY" 
 		"White_Box_RigRN.placeHolderList[14]" ""
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm|White_Box_Rig:Left_Forearm|White_Box_Rig:Right_Hand1.rotateZ" 
+		"White_Box_RigRN.placeHolderList[15]" ""
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm|White_Box_Rig:Left_Forearm|White_Box_Rig:Right_Hand1|White_Box_Rig:Left_Knuckle.rotateZ" 
+		"White_Box_RigRN.placeHolderList[16]" ""
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm|White_Box_Rig:Left_Forearm|White_Box_Rig:Right_Hand1|White_Box_Rig:Left_Knuckle|White_Box_Rig:Left_Knuckle_2.rotateZ" 
+		"White_Box_RigRN.placeHolderList[17]" ""
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Left_Upper_Arm|White_Box_Rig:Left_Forearm|White_Box_Rig:Right_Hand1|White_Box_Rig:Left_Knuckle|White_Box_Rig:Left_Knuckle_2|White_Box_Rig:Left_Knuckle_3.rotateZ" 
+		"White_Box_RigRN.placeHolderList[18]" ""
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Right_Upper_Arm.rotateY" 
+		"White_Box_RigRN.placeHolderList[19]" ""
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Right_Upper_Arm.rotateZ" 
+		"White_Box_RigRN.placeHolderList[20]" ""
 		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Right_Upper_Arm|White_Box_Rig:Right_Forearm.rotateY" 
-		"White_Box_RigRN.placeHolderList[15]" "";
+		"White_Box_RigRN.placeHolderList[21]" ""
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Right_Upper_Arm|White_Box_Rig:Right_Forearm|White_Box_Rig:Right_Hand.rotateZ" 
+		"White_Box_RigRN.placeHolderList[22]" ""
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Right_Upper_Arm|White_Box_Rig:Right_Forearm|White_Box_Rig:Right_Hand|White_Box_Rig:Right_Knuckle.rotateZ" 
+		"White_Box_RigRN.placeHolderList[23]" ""
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Right_Upper_Arm|White_Box_Rig:Right_Forearm|White_Box_Rig:Right_Hand|White_Box_Rig:Right_Knuckle|White_Box_Rig:Right_Knuckle_2.rotateZ" 
+		"White_Box_RigRN.placeHolderList[24]" ""
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Right_Upper_Arm|White_Box_Rig:Right_Forearm|White_Box_Rig:Right_Hand|White_Box_Rig:Right_Knuckle|White_Box_Rig:Right_Knuckle_2|White_Box_Rig:Right_Knuckle_3.rotateZ" 
+		"White_Box_RigRN.placeHolderList[25]" ""
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Neck.rotateX" 
+		"White_Box_RigRN.placeHolderList[26]" ""
+		5 4 "White_Box_RigRN" "|White_Box_Rig:Waist|White_Box_Rig:Torso|White_Box_Rig:Chest|White_Box_Rig:Neck|White_Box_Rig:Head.rotateY" 
+		"White_Box_RigRN.placeHolderList[27]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode script -n "uiConfigurationScriptNode";
@@ -229,43 +292,64 @@ createNode script -n "uiConfigurationScriptNode";
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
 	rename -uid "32CA16CC-4AD0-A580-4397-14906FF7C21A";
-	setAttr ".b" -type "string" "playbackOptions -min 0 -max 13 -ast 0 -aet 120 ";
+	setAttr ".b" -type "string" "playbackOptions -min 0 -max 25 -ast 0 -aet 120 ";
 	setAttr ".st" 6;
 createNode animCurveTA -n "Right_Thigh_rotateX";
 	rename -uid "07A1F45A-4DA6-61BF-1074-F4807169CEFF";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  0 -31.447204278151311 4 -50 7 0 10 16.404432337702204
-		 13 35.407;
+	setAttr -s 9 ".ktv[0:8]"  0 -31.447204278151311 4 -50 7 0 10 16.404432337702204
+		 13 35.406752801906734 17 35.493122861308699 20 -17.061988322675955 23 -45 26 -31.447204278151311;
+	setAttr -s 9 ".kit[8]"  1;
+	setAttr -s 9 ".kot[4:8]"  1 18 18 18 18;
+	setAttr -s 9 ".kix[8]"  1;
+	setAttr -s 9 ".kiy[8]"  0;
+	setAttr -s 9 ".kox[4:8]"  1 1 0.17519999214045709 1 1;
+	setAttr -s 9 ".koy[4:8]"  0 0 -0.98453286524827799 0 0;
 createNode animCurveTL -n "Waist_translateY";
 	rename -uid "07106523-4486-EB3E-93A2-918A3A1B7C19";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  0 -0.36586192225437664 4 -0.56021261244176124
-		 7 0 10 0.41255254525377527 13 -0.366;
+	setAttr -s 9 ".ktv[0:8]"  0 -0.36586192225437664 4 -0.56021261244176124
+		 7 0 10 0.41255254525377527 13 -0.36586192225437664 17 -0.56021261244176124 20 0 23 0.41255254525377527
+		 26 -0.366;
 createNode animCurveTA -n "Left_Thigh_rotateX";
 	rename -uid "69744F6A-4CEB-5519-A9F9-2A8CD8A6FF56";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  0 35.406752801906734 4 35.493122861308699
-		 7 -17.061988322675955 10 -45 13 -31;
+	setAttr -s 9 ".ktv[0:8]"  0 35.406752801906734 4 35.493122861308699
+		 7 -17.061988322675955 10 -45 13 -31.447204278151311 17 -50 20 0 23 16.404432337702204
+		 26 35.407;
 createNode animCurveTA -n "Left_Shin_rotateX";
 	rename -uid "3C766A49-4925-6F9B-7043-C7AD7E97F99A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  0 23.993427082282253 4 37.328371792893478
-		 7 85.131398497709696 13 0;
+	setAttr -s 8 ".ktv[0:7]"  0 23.993427082282253 4 37.328371792893478
+		 7 85.131398497709696 13 0 17 50 20 0 23 0 26 23.993427082282253;
+	setAttr -s 8 ".kit[7]"  1;
+	setAttr -s 8 ".kot[3:7]"  1 18 18 18 18;
+	setAttr -s 8 ".kix[7]"  0.40860511285155487;
+	setAttr -s 8 ".kiy[7]"  0.91271126965298743;
+	setAttr -s 8 ".kox[3:7]"  1 1 1 1 1;
+	setAttr -s 8 ".koy[3:7]"  0 0 0 0 0;
 createNode animCurveTA -n "Left_Toes_rotateX";
 	rename -uid "B902B2EC-48FF-814E-5664-FB9C53A5A080";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  0 -38.971295666538275 4 0;
+	setAttr -s 7 ".ktv[0:6]"  0 -38.971295666538275 4 0 13 0 17 0 20 0
+		 23 0 26 -38.971;
 createNode animCurveTA -n "Left_Heel_rotateX";
 	rename -uid "C2BDE8B1-4229-0B56-5B7C-A081791C7056";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  0 15.688077142893551 4 0 10 -17.45886411452128
-		 13 20.535;
+	setAttr -s 8 ".ktv[0:7]"  0 15.688077142893551 4 0 10 -17.45886411452128
+		 13 20.534552497078892 17 0 20 0 23 25.266897883028403 26 15.688077142893551;
+	setAttr -s 8 ".kit[7]"  1;
+	setAttr -s 8 ".kot[3:7]"  1 18 18 18 18;
+	setAttr -s 8 ".kix[7]"  0.55164942824815677;
+	setAttr -s 8 ".kiy[7]"  -0.83407608065060934;
+	setAttr -s 8 ".kox[3:7]"  1 1 1 1 1;
+	setAttr -s 8 ".koy[3:7]"  0 0 0 0 0;
 createNode animCurveTA -n "Left_Upper_Arm_rotateZ";
 	rename -uid "31E7DFB6-4DA5-9022-3DFD-05A9B487FC94";
 	setAttr ".tan" 18;
@@ -280,40 +364,123 @@ createNode animCurveTA -n "Left_Upper_Arm_rotateY";
 	rename -uid "3F975EBA-4EC9-4673-6C89-75B667422B9F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  0 45 4 62.0296963542227 7 -5;
+	setAttr -s 9 ".ktv[0:8]"  1 -45 5 -62.029696 8 5 11 20 14 45 18 54.883374
+		 21 -5 24 -29.999999999999996 27 -45;
+	setAttr -s 9 ".kit[8]"  1;
+	setAttr -s 9 ".kot[4:8]"  1 18 18 18 18;
+	setAttr -s 9 ".kix[8]"  0.46256868906779747;
+	setAttr -s 9 ".kiy[8]"  -0.88658344666145172;
+	setAttr -s 9 ".kox[4:8]"  1 1 0.16639601152027536 0.33713429871942313 
+		1;
+	setAttr -s 9 ".koy[4:8]"  0 0 -0.98605900804675195 -0.94145656544896572 
+		0;
 createNode animCurveTA -n "Left_Forearm_rotateY";
 	rename -uid "2FBA3BFE-4322-A03B-34DE-16A8778C68B0";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  0 -25 4 -30.646846712979496 7 -30.646846712979496;
+	setAttr -s 9 ".ktv[0:8]"  0 -45 4 -30.646846712979496 7 -10 10 -20
+		 13 -25 17 -42.034276 20 10 23 -20 26 -45;
 createNode animCurveTA -n "Right_Upper_Arm_rotateY";
 	rename -uid "B778BC7B-4F01-99E8-FCA8-F1BDFD9DF89F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  0 45 4 54.883373798778379 7 -5;
+	setAttr -s 9 ".ktv[0:8]"  1 -45 5 -54.883374 8 5 11 29.999999999999996
+		 14 45 18 62.029696 21 -5 24 -20 27 -45;
 createNode animCurveTA -n "Right_Forearm_rotateY";
 	rename -uid "99AF0D66-4D7E-50DF-3614-3B986B3774A7";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  0 25 4 42.034276180071984 7 14.999999999999998;
+	setAttr -s 9 ".ktv[0:8]"  0 25 4 42.034276180071984 7 -10 10 20 13 45
+		 17 30.646847 20 10 23 20 26 45;
+	setAttr -s 9 ".kit[8]"  1;
+	setAttr -s 9 ".kot[4:8]"  1 18 18 18 18;
+	setAttr -s 9 ".kix[8]"  0.60428575043434885;
+	setAttr -s 9 ".kiy[8]"  -0.79676767744556243;
+	setAttr -s 9 ".kox[4:8]"  1 0.43087077412200148 1 0.37876338550178001 
+		1;
+	setAttr -s 9 ".koy[4:8]"  0 -0.90241363908548444 0 0.92549354282092644 
+		0;
 createNode animCurveTA -n "Right_Shin_rotateX";
 	rename -uid "38B5FC2F-4AFC-F28E-5235-DC950C679F99";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  0 0 4 50 7 0 13 23.993;
+	setAttr -s 8 ".ktv[0:7]"  0 0 4 50 7 0 10 0 13 23.993427082282253
+		 17 37.328371792893478 20 85.131398497709696 26 0;
 createNode animCurveTA -n "Right_Heel_rotateX";
 	rename -uid "DC4B5266-4711-0E5E-EABE-E2AC839AA0C5";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  0 20.534552497078892 4 0 7 0 10 25.266897883028403
-		 13 15.687999999999999;
+	setAttr -s 8 ".ktv[0:7]"  0 20.534552497078892 4 0 7 0 10 25.266897883028403
+		 13 15.688077142893551 17 0 23 -17.45886411452128 26 20.535;
 createNode animCurveTA -n "Right_Toes_rotateX";
 	rename -uid "821648F1-42E3-EBA9-569F-9CB3273A17A8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  7 0 10 0 13 -38.971;
+	setAttr -s 6 ".ktv[0:5]"  0 0 4 0 7 0 10 0 13 -38.971 19 0;
+createNode animCurveTA -n "Right_Hand_rotateZ";
+	rename -uid "BDE39096-409A-89B3-518C-5784186D1306";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  0 16.373594925669885;
+createNode animCurveTA -n "Right_Knuckle_rotateZ";
+	rename -uid "DC96097B-42E8-EB1D-EAAA-638C30741FFC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  0 8.7643166364986538;
+createNode animCurveTA -n "Right_Knuckle_3_rotateZ";
+	rename -uid "3EE66112-44B0-3D08-E07F-5EBDCC61CFE4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  0 15.287035958456773;
+createNode animCurveTA -n "Right_Knuckle_2_rotateZ";
+	rename -uid "79728A29-4BD6-7144-8007-FBABD634562E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  0 16.073975777109048;
+createNode animCurveTA -n "Left_Knuckle_3_rotateZ";
+	rename -uid "6C8CC2CF-4607-2499-25B6-6D992F6A6AA8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  0 -21.91631906406251;
+createNode animCurveTA -n "Left_Knuckle_2_rotateZ";
+	rename -uid "C7A1C88B-4961-0582-6DFE-ABA3EFB66403";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  0 -14.110516112229632;
+createNode animCurveTA -n "Left_Knuckle_rotateZ";
+	rename -uid "574952CC-414A-4BDE-C959-96996B8FA135";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  0 -10.584409045825241;
+createNode animCurveTA -n "Right_Hand1_rotateZ";
+	rename -uid "4FAEA556-4A53-45B6-6063-85B92D7482B5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  0 -8.4944881348292292;
+createNode animCurveTA -n "Chest_rotateY";
+	rename -uid "0B782C74-476C-C25E-3413-288427AFB592";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  0 -8 13 8 25 -8;
+createNode animCurveTA -n "Torso_rotateX";
+	rename -uid "6811068A-4DF7-152B-DAE7-2DBD67739091";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 6 ".ktv[0:5]"  7 3.0000000000000004 10 0 13 3.0000000000000004
+		 20 3.0000000000000004 23 0 26 3.0000000000000004;
+createNode animCurveTA -n "Head_rotateY";
+	rename -uid "F1A32A07-4567-2C64-9607-63959BE24F24";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  0 2 13 -2 26 2;
+createNode animCurveTA -n "Neck_rotateX";
+	rename -uid "FF847800-496F-0E69-2B60-7FA73192B52B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  0 5;
 select -ne :time1;
-	setAttr ".o" 0;
+	setAttr ".o" 2;
+	setAttr ".unw" 2;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
@@ -364,12 +531,24 @@ connectAttr "Left_Thigh_rotateX.o" "White_Box_RigRN.phl[6]";
 connectAttr "Left_Shin_rotateX.o" "White_Box_RigRN.phl[7]";
 connectAttr "Left_Heel_rotateX.o" "White_Box_RigRN.phl[8]";
 connectAttr "Left_Toes_rotateX.o" "White_Box_RigRN.phl[9]";
-connectAttr "Left_Upper_Arm_rotateY.o" "White_Box_RigRN.phl[10]";
-connectAttr "Left_Upper_Arm_rotateZ.o" "White_Box_RigRN.phl[11]";
-connectAttr "Left_Forearm_rotateY.o" "White_Box_RigRN.phl[12]";
-connectAttr "Right_Upper_Arm_rotateY.o" "White_Box_RigRN.phl[13]";
-connectAttr "Right_Upper_Arm_rotateZ.o" "White_Box_RigRN.phl[14]";
-connectAttr "Right_Forearm_rotateY.o" "White_Box_RigRN.phl[15]";
+connectAttr "Torso_rotateX.o" "White_Box_RigRN.phl[10]";
+connectAttr "Chest_rotateY.o" "White_Box_RigRN.phl[11]";
+connectAttr "Left_Upper_Arm_rotateY.o" "White_Box_RigRN.phl[12]";
+connectAttr "Left_Upper_Arm_rotateZ.o" "White_Box_RigRN.phl[13]";
+connectAttr "Left_Forearm_rotateY.o" "White_Box_RigRN.phl[14]";
+connectAttr "Right_Hand1_rotateZ.o" "White_Box_RigRN.phl[15]";
+connectAttr "Left_Knuckle_rotateZ.o" "White_Box_RigRN.phl[16]";
+connectAttr "Left_Knuckle_2_rotateZ.o" "White_Box_RigRN.phl[17]";
+connectAttr "Left_Knuckle_3_rotateZ.o" "White_Box_RigRN.phl[18]";
+connectAttr "Right_Upper_Arm_rotateY.o" "White_Box_RigRN.phl[19]";
+connectAttr "Right_Upper_Arm_rotateZ.o" "White_Box_RigRN.phl[20]";
+connectAttr "Right_Forearm_rotateY.o" "White_Box_RigRN.phl[21]";
+connectAttr "Right_Hand_rotateZ.o" "White_Box_RigRN.phl[22]";
+connectAttr "Right_Knuckle_rotateZ.o" "White_Box_RigRN.phl[23]";
+connectAttr "Right_Knuckle_2_rotateZ.o" "White_Box_RigRN.phl[24]";
+connectAttr "Right_Knuckle_3_rotateZ.o" "White_Box_RigRN.phl[25]";
+connectAttr "Neck_rotateX.o" "White_Box_RigRN.phl[26]";
+connectAttr "Head_rotateY.o" "White_Box_RigRN.phl[27]";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
