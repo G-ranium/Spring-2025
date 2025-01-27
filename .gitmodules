@@ -1,3 +1,3 @@
 [submodule "submodules/Spring-2025"]
-	path = submodules/Spring-2025
+	path = "Game Dev/Chemistry Clash/Assets/tools"
 	url = https://github.com/anthonyromrell/ArtisanDream.Tools
