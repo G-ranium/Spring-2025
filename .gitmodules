@@ -1,1 +1,4 @@
 
+[submodule " Game Dev/Chemistry Clash/Assets/Tools"]
+	path = " Game Dev/Chemistry Clash/Assets/Tools"
+	url = https://github.com/anthonyromrell/ArtisanDream.Tools
