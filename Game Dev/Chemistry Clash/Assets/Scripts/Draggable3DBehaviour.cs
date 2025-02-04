@@ -10,6 +10,10 @@ public class Draggable3DBehaviour : MonoBehaviour
     public bool CanDrag { get; set; }
     public UnityEvent onDrag, onUp;
 
+    // Define the boundaries for the object
+    public Vector3 minBoundary = new Vector3(-5, -5, -5);
+    public Vector3 maxBoundary = new Vector3(5, 5, 5);
+
     private void OnEnable()
     {
         cam = Camera.main;
@@ -33,6 +37,12 @@ public class Draggable3DBehaviour : MonoBehaviour
 
             // Apply the offset and update the position
             newPosition = worldMousePos + offsetPosition;
+
+            // Clamp the new position within the defined boundaries
+            newPosition.x = Mathf.Clamp(newPosition.x, minBoundary.x, maxBoundary.x);
+            newPosition.y = Mathf.Clamp(newPosition.y, minBoundary.y, maxBoundary.y);
+            newPosition.z = Mathf.Clamp(newPosition.z, minBoundary.z, maxBoundary.z);
+
             transform.position = newPosition;
 
             onDrag.Invoke();
