@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: GameObjects
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 5157908447646995684, guid: 03f684ac51f454449b5acd61fdabbf12, type: 3}
   - {fileID: 5815081400629102083, guid: 9b979aa39d3236849b16bcf6d2eb7cff, type: 3}
-  - {fileID: 7743889942218757643, guid: bb47e5d85cd52b04aab5cd01a2f954d4, type: 3}
+  - {fileID: 5815081400629102083, guid: 90b450fea877e6e42a2378c5c2fd9800, type: 3}

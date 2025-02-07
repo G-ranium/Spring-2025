@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6993616738133750284}
   - component: {fileID: 3300921085298158779}
   - component: {fileID: 9147903426491571130}
-  - component: {fileID: 815438159920127882}
   - component: {fileID: 4848621992113242587}
   - component: {fileID: 4753973035709709555}
   - component: {fileID: 6640437824897274114}
@@ -157,7 +156,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5815081400629102083}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c956dfee3a37a45dd99f9f346b9ff541, type: 3}
   m_Name: 
@@ -166,9 +165,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   nameIdObj: {fileID: 11400000, guid: c0d9943356532fe4184e2ee725c4f57b, type: 2}
-  holdTime: 0.1
+  holdTime: 0
   triggerEnterMatches:
-  - nameIdObj: {fileID: 11400000, guid: c0d9943356532fe4184e2ee725c4f57b, type: 2}
+  - matchPairLocation: {fileID: 11400000, guid: 0314109052170bd48a13bf81e61ad311, type: 2}
+    nameIdObj: {fileID: 11400000, guid: c0d9943356532fe4184e2ee725c4f57b, type: 2}
     canRepeat: 0
     repeatTime: 0
     workEvent:
@@ -198,60 +198,61 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 5146011131438731691}
+          m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6640437824897274114}
+          m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 0314109052170bd48a13bf81e61ad311, type: 2}
+          m_TargetAssemblyTypeName: MatchPairData, Assembly-CSharp
+          m_MethodName: UpdatePrefab
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 5815081400629102083, guid: c08f2e067a65cf3458eb684b7474a7a5, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     repeatEvent:
       m_PersistentCalls:
         m_Calls: []
     delayedEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 4848621992113242587}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   triggerExitMatches: []
---- !u!114 &815438159920127882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5815081400629102083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65180f705bb904ee98a80edc6dcf0d55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  action: {fileID: 11400000, guid: c50788361e9bf9e45a6881060039f669, type: 2}
-  startEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  respondEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6640437824897274114}
-        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4848621992113242587}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  respondLateEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  holdTime: 0.1
 --- !u!114 &4848621992113242587
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,8 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class ListInstancingBehaviour : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class ListInstancingBehaviour : MonoBehaviour
     [FormerlySerializedAs("SpawnPoint")] public Transform spawnPoint;
     [FormerlySerializedAs("TargetPoint")] public Transform targetPoint;
     [FormerlySerializedAs("PrefabCollection")] public PrefabCollection prefabCollection; // Reference to the prefab collection ScriptableObject
-
+    private int gameEventCalls = 0;
     private void Start()
     {
         startEvent.Invoke();
@@ -35,6 +37,18 @@ public class ListInstancingBehaviour : MonoBehaviour
         var newInstance = Instantiate(randomPrefab, spawnPoint.position, Quaternion.identity);
         newInstance.transform.LookAt(targetPoint.position);
     }
+    
+    public void InstantiateMatchPair(MatchPairData data)
+    {
+        gameEventCalls++;
+        if (gameEventCalls >= 2)
+        {
+            var newInstance = Instantiate(data.prefab, data.value, Quaternion.identity);
+            newInstance.transform.LookAt(targetPoint.position);
+            gameEventCalls = 0;
+        }
+    }
+
 
     public void InstantiateMultiple(GameObject prefab)
     {
