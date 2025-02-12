@@ -9,6 +9,7 @@ public class MatchPairData : ScriptableObject
     public void UpdateValue(Transform obj)
     {
         value = obj.position;
+        value.z = -2.08f;
     }
 
     public void UpdatePrefab(GameObject obj)

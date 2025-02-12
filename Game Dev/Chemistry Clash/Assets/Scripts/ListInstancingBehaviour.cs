@@ -41,10 +41,9 @@ public class ListInstancingBehaviour : MonoBehaviour
     public void InstantiateMatchPair(MatchPairData data)
     {
         gameEventCalls++;
-        if (gameEventCalls >= 2)
+        if (gameEventCalls % 2 == 0)
         {
             var newInstance = Instantiate(data.prefab, data.value, Quaternion.identity);
-            newInstance.transform.LookAt(targetPoint.position);
             gameEventCalls = 0;
         }
     }
