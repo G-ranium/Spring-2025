@@ -14,6 +14,7 @@ public class ListInstancingBehaviour : MonoBehaviour
 
     public GameObject atomPrefab;  // Reference to the atom prefab that you want to control instantiation of
     private int gameEventCalls = 0;
+    private int spawnEventCalls = 0;
     private bool canInstantiate = true;  // Flag to control execution
     private float instantiateDelay = 1f; // Delay in seconds
 
@@ -94,6 +95,16 @@ public class ListInstancingBehaviour : MonoBehaviour
         // Instantiate the selected prefab
         var newInstance = Instantiate(selectedPrefab, spawnPoint.position, Quaternion.identity);
         newInstance.transform.LookAt(targetPoint.position);
+    }
+
+    public void SpawnOneItemFromMatch()
+    {
+        spawnEventCalls++;
+        if (spawnEventCalls % 2 == 0)
+        {
+            InstantiateMultipleFromCollection();
+            spawnEventCalls = 0;
+        }
     }
 
     public void RandomMoleculeInstantiation(MatchPairData data)

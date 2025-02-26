@@ -6,8 +6,12 @@ public class FallingItem : MonoBehaviour
     private Rigidbody rb;
     private bool isFalling = false;
     private float velocityThreshold = 0.1f; // Adjust as needed
+    private float angularVelocityThreshold = 0.5f; // Adjust for rolling objects
     private float stopTimer = 0f;
     private float requiredStopTime = 0.2f; // Adjust as needed
+    private float maxFallTime = 3f; // Maximum time before forcing stop
+    private float fallTime = 0f; // Tracks total time since item started falling
+
     public UnityEvent groundedEvent;
 
     void Start()
@@ -19,7 +23,6 @@ public class FallingItem : MonoBehaviour
         }
         else
         {
-            // Ensure the Rigidbody starts as kinematic and without gravity
             rb.isKinematic = true;
             rb.useGravity = false;
         }
@@ -29,10 +32,10 @@ public class FallingItem : MonoBehaviour
     {
         if (rb != null)
         {
-            // Enable gravity and disable kinematic when the item is dropped
             rb.isKinematic = false;
             rb.useGravity = true;
             isFalling = true;
+            fallTime = 0f; // Reset fall time when dropped
         }
     }
 
@@ -40,14 +43,17 @@ public class FallingItem : MonoBehaviour
     {
         if (isFalling)
         {
+            fallTime += Time.deltaTime; // Track total fall time
 
-            // Check if the object's velocity is below the threshold
-            if (rb.linearVelocity.magnitude < velocityThreshold)
+            bool isBarelyMoving = rb.linearVelocity.magnitude < velocityThreshold && rb.angularVelocity.magnitude < angularVelocityThreshold;
+
+            // Check if the object's movement is below thresholds
+            if (isBarelyMoving)
             {
                 stopTimer += Time.deltaTime;
 
-                // If the object has been below the threshold for the required time, consider it stopped
-                if (stopTimer >= requiredStopTime)
+                // If the object has been slow long enough, stop it
+                if (stopTimer >= requiredStopTime || fallTime >= maxFallTime)
                 {
                     isFalling = false;
                     OnItemStopped();
@@ -55,14 +61,15 @@ public class FallingItem : MonoBehaviour
             }
             else
             {
-                // Reset the timer if the object is still moving
-                stopTimer = 0f;
+                stopTimer = 0f; // Reset the stop timer if still moving
             }
         }
     }
 
     void OnItemStopped()
     {
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero; // Stop rolling
         groundedEvent.Invoke();
     }
 }
