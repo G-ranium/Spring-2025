@@ -11,6 +11,7 @@ public class ListInstancingBehaviour : MonoBehaviour
     [FormerlySerializedAs("SpawnPoint")] public Transform spawnPoint;
     [FormerlySerializedAs("TargetPoint")] public Transform targetPoint;
     [FormerlySerializedAs("PrefabCollection")] public PrefabCollection prefabCollection; // Reference to the prefab collection ScriptableObject
+    [SerializeField] public SimpleBoolData canSpawn;
 
     public GameObject atomPrefab;  // Reference to the atom prefab that you want to control instantiation of
     private int gameEventCalls = 0;
@@ -100,10 +101,19 @@ public class ListInstancingBehaviour : MonoBehaviour
     public void SpawnOneItemFromMatch()
     {
         spawnEventCalls++;
-        if (spawnEventCalls % 2 == 0)
+        if (spawnEventCalls % 2 == 0 && canSpawn.value)
         {
             InstantiateMultipleFromCollection();
             spawnEventCalls = 0;
+            canSpawn.value = false;
+        }
+        else
+        {
+            if (spawnEventCalls % 2 == 0)
+            {
+                Debug.Log("Item not spawned because canSpawn is False.");
+            }
+
         }
     }
 
