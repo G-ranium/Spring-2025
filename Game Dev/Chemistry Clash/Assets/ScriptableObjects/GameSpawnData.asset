@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e895917d1704c428482a499462ecce, type: 3}
+  m_Name: GameSpawnData
+  m_EditorClassIdentifier: 
+  spawnEntries:
+  - prefab: {fileID: 5815081400629102083, guid: facab8343f8be5842ac376e4fbd3c758, type: 3}
+    position: {x: -4.9405665, y: 0.682166, z: -3.0363426}
+  - prefab: {fileID: 5815081400629102083, guid: e041eb2e1ea39074b8052093ac6c5088, type: 3}
+    position: {x: -3.3055296, y: 1.1480188, z: -3.371695}
+  - prefab: {fileID: 5815081400629102083, guid: facab8343f8be5842ac376e4fbd3c758, type: 3}
+    position: {x: 0.9959456, y: 0.6821662, z: -1.5157318}
+  - prefab: {fileID: 5815081400629102083, guid: 13b525b09329d814fb773a7d39d8c645, type: 3}
+    position: {x: 0.935, y: 19, z: -1.5}
