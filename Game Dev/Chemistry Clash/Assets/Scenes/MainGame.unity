@@ -214,6 +214,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 558e56cf45a36164080b5d6a650aa1b2, type: 2}
+        m_TargetAssemblyTypeName: DataStorage, Assembly-CSharp
+        m_MethodName: SaveAllData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &43411459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3467,7 +3479,6 @@ GameObject:
   - component: {fileID: 1120281475}
   - component: {fileID: 1120281474}
   - component: {fileID: 1120281476}
-  - component: {fileID: 1120281477}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3612,41 +3623,6 @@ MonoBehaviour:
   raiseEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1120281477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120281472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65180f705bb904ee98a80edc6dcf0d55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  action: {fileID: 11400000, guid: 8ac62f73337a9fb48a02da1e4c757bf4, type: 2}
-  startEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  respondEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1120281476}
-        m_TargetAssemblyTypeName: TextMeshProBehaviour, Assembly-CSharp
-        m_MethodName: UpdateText
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 8901244126b928c4eae71f9d959048fe, type: 2}
-          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  respondLateEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  holdTime: 0.1
 --- !u!1 &1127390232
 GameObject:
   m_ObjectHideFlags: 0
@@ -4123,10 +4099,10 @@ MonoBehaviour:
   startEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 91e3771866945044e977efa4ccca134e, type: 2}
-        m_TargetAssemblyTypeName: IntData, Assembly-CSharp
-        m_MethodName: SetValue
-        m_Mode: 3
+      - m_Target: {fileID: 11400000, guid: 558e56cf45a36164080b5d6a650aa1b2, type: 2}
+        m_TargetAssemblyTypeName: DataStorage, Assembly-CSharp
+        m_MethodName: LoadAllData
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4153,6 +4129,18 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: 2a2bb586e74b3e8408b0b48e6d86ca27, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1120281472}
+        m_TargetAssemblyTypeName: TextMeshProBehaviour, Assembly-CSharp
+        m_MethodName: UpdateText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 8901244126b928c4eae71f9d959048fe, type: 2}
           m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -4404,6 +4392,22 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 11400000, guid: 2a2bb586e74b3e8408b0b48e6d86ca27, type: 2}
             m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: GameOver
+            m_BoolArgument: 0
+          m_CallState: 2
+  - action: {fileID: 11400000, guid: 8ac62f73337a9fb48a02da1e4c757bf4, type: 2}
+    actionEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1120281476}
+          m_TargetAssemblyTypeName: TextMeshProBehaviour, Assembly-CSharp
+          m_MethodName: UpdateText
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 8901244126b928c4eae71f9d959048fe, type: 2}
+            m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+            m_IntArgument: 50
             m_FloatArgument: 0
             m_StringArgument: GameOver
             m_BoolArgument: 0
