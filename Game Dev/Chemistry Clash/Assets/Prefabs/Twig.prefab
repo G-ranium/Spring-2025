@@ -200,8 +200,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  minBoundary: {x: -3.63, y: 19, z: -1.5}
-  maxBoundary: {x: 5.5, y: 19, z: -1.5}
+  minBoundary: {x: -5.5, y: 19, z: -1.5}
+  maxBoundary: {x: 7.5, y: 19, z: -1.5}
 --- !u!114 &9147903426491571130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -792,8 +792,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c4e7da17736a34881739fa0449fc47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxX: 5.9
-  minX: -5.5
+  maxX: 7.5
+  minX: -5.56
 --- !u!114 &1347722320602901245
 MonoBehaviour:
   m_ObjectHideFlags: 0

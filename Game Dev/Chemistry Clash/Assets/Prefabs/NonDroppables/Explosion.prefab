@@ -5200,8 +5200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c4e7da17736a34881739fa0449fc47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxX: 5.9
-  minX: -5.5
+  maxX: 7.5
+  minX: -5.56
 --- !u!114 &-6983702082459706552
 MonoBehaviour:
   m_ObjectHideFlags: 0
