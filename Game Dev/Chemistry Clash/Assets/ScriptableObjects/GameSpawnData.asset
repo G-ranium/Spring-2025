@@ -13,11 +13,5 @@ MonoBehaviour:
   m_Name: GameSpawnData
   m_EditorClassIdentifier: 
   spawnEntries:
-  - prefab: {fileID: 5815081400629102083, guid: facab8343f8be5842ac376e4fbd3c758, type: 3}
-    position: {x: -4.9405665, y: 0.682166, z: -3.0363426}
-  - prefab: {fileID: 5815081400629102083, guid: e041eb2e1ea39074b8052093ac6c5088, type: 3}
-    position: {x: -3.3055296, y: 1.1480188, z: -3.371695}
-  - prefab: {fileID: 5815081400629102083, guid: facab8343f8be5842ac376e4fbd3c758, type: 3}
-    position: {x: 0.9959456, y: 0.6821662, z: -1.5157318}
-  - prefab: {fileID: 5815081400629102083, guid: 13b525b09329d814fb773a7d39d8c645, type: 3}
-    position: {x: 0.935, y: 19, z: -1.5}
+  - prefab: {fileID: 5815081400629102083, guid: 9b979aa39d3236849b16bcf6d2eb7cff, type: 3}
+    position: {x: 0.935, y: 1, z: -1.5}

@@ -24,7 +24,9 @@ public class LoadItemsInstantiator : MonoBehaviour
             if (prefab != null)
             {
                 var instance = Instantiate(prefab, position, Quaternion.identity);
-                instance.tag = "SpawnedItem"; // Retag for future saves
+                instance.tag = "SpawnedItem"; // Reapply tag
+                var spawnedItem = instance.GetComponent<SpawnedItem>() ?? instance.AddComponent<SpawnedItem>();
+                spawnedItem.originalPrefab = prefab; // Reapply prefab reference
                 yield return new WaitForSeconds(spawnDelay); // Stagger instantiation
             }
         }
