@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e895917d1704c428482a499462ecce, type: 3}
   m_Name: GameSpawnData
   m_EditorClassIdentifier: 
-  spawnEntries:
-  - prefab: {fileID: 5815081400629102083, guid: 9b979aa39d3236849b16bcf6d2eb7cff, type: 3}
-    position: {x: 0.935, y: 1, z: -1.5}
+  spawnEntries: []

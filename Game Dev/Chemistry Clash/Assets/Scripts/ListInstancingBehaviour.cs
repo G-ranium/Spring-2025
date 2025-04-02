@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -11,6 +12,7 @@ public class ListInstancingBehaviour : MonoBehaviour
     [FormerlySerializedAs("SpawnPoint")] public Transform spawnPoint;
     [FormerlySerializedAs("TargetPoint")] public Transform targetPoint;
     [FormerlySerializedAs("PrefabCollection")] public PrefabCollection prefabCollection;
+    public PrefabCollection secondaryPrefabCollection;
     [SerializeField] public SimpleBoolData canSpawn;
 
     public GameObject atomPrefab;
@@ -19,22 +21,131 @@ public class ListInstancingBehaviour : MonoBehaviour
     private bool canInstantiate = true;
     private float instantiateDelay = 1f;
 
+    private Dictionary<GameObject, Queue<GameObject>> prefabPools = new Dictionary<GameObject, Queue<GameObject>>();
+    private int initialPoolSize = 20;
+
     private void Start()
     {
+        InitializePools();
         startEvent.Invoke();
+    }
+
+    private void InitializePools()
+    {
+        if (atomPrefab != null)
+            CreatePool(atomPrefab, initialPoolSize);
+
+        if (prefabCollection != null && prefabCollection.prefabs.Length > 0)
+        {
+            foreach (GameObject prefab in prefabCollection.prefabs)
+            {
+                CreatePool(prefab, initialPoolSize);
+            }
+        }
+
+        if (secondaryPrefabCollection != null && secondaryPrefabCollection.prefabs.Length > 0)
+        {
+            foreach (GameObject prefab in secondaryPrefabCollection.prefabs)
+            {
+                CreatePool(prefab, initialPoolSize);
+            }
+        }
+    }
+
+    private void CreatePool(GameObject prefab, int size)
+    {
+        if (!prefabPools.ContainsKey(prefab))
+        {
+            Queue<GameObject> pool = new Queue<GameObject>();
+            for (int i = 0; i < size; i++)
+            {
+                GameObject obj = Instantiate(prefab);
+                obj.SetActive(false);
+                Rigidbody rb = obj.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.isKinematic = true; // Start kinematic to match instantiation
+                    rb.useGravity = false;
+                    rb.velocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+                    rb.Sleep(); // Ensure fully at rest
+                }
+                pool.Enqueue(obj);
+            }
+            prefabPools[prefab] = pool;
+        }
+    }
+
+    private GameObject GetFromPool(GameObject prefab, Vector3 position, Quaternion rotation)
+    {
+        if (!prefabPools.ContainsKey(prefab) || prefabPools[prefab].Count == 0)
+            CreatePool(prefab, 5);
+
+        GameObject instance = prefabPools[prefab].Dequeue();
+        
+        // Reset state before activating
+        Rigidbody rb = instance.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = true; // Match instantiation’s initial state
+            rb.useGravity = false;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.Sleep(); // Force rest state
+            rb.MovePosition(position); // Sync position with physics
+        }
+        
+        instance.transform.SetPositionAndRotation(position, rotation);
+        Physics.SyncTransforms(); // Force physics to recognize new position
+        
+        instance.SetActive(true);
+        SetupSpawnedItem(instance, prefab);
+
+        // Trigger gravity as in original
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.useGravity = true;
+            rb.WakeUp();
+            StartCoroutine(ActivateGravity(rb));
+        }
+
+        return instance;
+    }
+
+    public void ReturnToPool(GameObject instance)
+    {
+        SpawnedItem spawnedItem = instance.GetComponent<SpawnedItem>();
+        if (spawnedItem != null && prefabPools.ContainsKey(spawnedItem.originalPrefab))
+        {
+            Rigidbody rb = instance.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = true; // Reset to initial state
+                rb.useGravity = false;
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+                rb.Sleep();
+            }
+            instance.SetActive(false);
+            prefabPools[spawnedItem.originalPrefab].Enqueue(instance);
+        }
+        else
+        {
+            Destroy(instance);
+        }
     }
 
     public void InstantiateGameObject(GameObject prefab, Transform parent)
     {
-        var instance = Instantiate(prefab, parent);
-        SetupSpawnedItem(instance, prefab);
+        var instance = GetFromPool(prefab, parent.position, parent.rotation);
+        instance.transform.SetParent(parent);
     }
 
     public void InstantiateAtPosition(GameObject prefab)
     {
-        var newInstance = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
+        var newInstance = GetFromPool(prefab, spawnPoint.position, Quaternion.identity);
         newInstance.transform.LookAt(targetPoint.position);
-        SetupSpawnedItem(newInstance, prefab);
     }
 
     public void InstantiateUsingPrefab()
@@ -42,9 +153,8 @@ public class ListInstancingBehaviour : MonoBehaviour
         if (prefabCollection == null || prefabCollection.prefabs.Length == 0) return;
 
         var randomPrefab = prefabCollection.prefabs[Random.Range(0, prefabCollection.prefabs.Length)];
-        var newInstance = Instantiate(randomPrefab, spawnPoint.position, Quaternion.identity);
+        var newInstance = GetFromPool(randomPrefab, spawnPoint.position, Quaternion.identity);
         newInstance.transform.LookAt(targetPoint.position);
-        SetupSpawnedItem(newInstance, randomPrefab);
     }
 
     public void InstantiateMatchPair(MatchPairData data)
@@ -52,18 +162,8 @@ public class ListInstancingBehaviour : MonoBehaviour
         gameEventCalls++;
         if (gameEventCalls % 2 == 0)
         {
-            var newInstance = Instantiate(data.prefab, data.value, Quaternion.identity);
-            SetupSpawnedItem(newInstance, data.prefab);
+            var newInstance = GetFromPool(data.prefab, data.value, Quaternion.identity);
             gameEventCalls = 0;
-
-            Rigidbody rb = newInstance.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.isKinematic = false;
-                rb.useGravity = true;
-                rb.WakeUp();
-                StartCoroutine(ActivateGravity(rb));
-            }
         }
     }
 
@@ -79,9 +179,8 @@ public class ListInstancingBehaviour : MonoBehaviour
     {
         for (var i = 0; i < indexer.Value; i++)
         {
-            var newInstance = Instantiate(prefab, spawnPoint);
+            var newInstance = GetFromPool(prefab, spawnPoint.position, Quaternion.identity);
             newInstance.name = i.ToString();
-            SetupSpawnedItem(newInstance, prefab);
         }
     }
 
@@ -92,9 +191,8 @@ public class ListInstancingBehaviour : MonoBehaviour
         GameObject selectedPrefab = GetWeightedRandomPrefab();
         if (selectedPrefab == null) return;
 
-        var newInstance = Instantiate(selectedPrefab, spawnPoint.position, Quaternion.identity);
+        var newInstance = GetFromPool(selectedPrefab, spawnPoint.position, Quaternion.identity);
         newInstance.transform.LookAt(targetPoint.position);
-        SetupSpawnedItem(newInstance, selectedPrefab);
     }
 
     public void SpawnOneItemFromMatch()
@@ -133,18 +231,7 @@ public class ListInstancingBehaviour : MonoBehaviour
             yield break;
         }
 
-        var newMolecule = Instantiate(selectedPrefab, data.value, Quaternion.identity);
-        SetupSpawnedItem(newMolecule, selectedPrefab);
-
-        Rigidbody rb = newMolecule.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.isKinematic = false;
-            rb.useGravity = true;
-            rb.WakeUp();
-            StartCoroutine(ActivateGravity(rb));
-        }
-
+        var newMolecule = GetFromPool(selectedPrefab, data.value, Quaternion.identity);
         yield return new WaitForSeconds(instantiateDelay);
         canInstantiate = true;
     }
@@ -174,7 +261,6 @@ public class ListInstancingBehaviour : MonoBehaviour
         return selectedPrefab;
     }
 
-    // Helper method to set up the SpawnedItem component
     private void SetupSpawnedItem(GameObject instance, GameObject prefab)
     {
         instance.tag = "SpawnedItem";
