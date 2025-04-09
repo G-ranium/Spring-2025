@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -4325096087006595840}
   m_Layer: 0
   m_Name: Coal
-  m_TagString: Untagged
+  m_TagString: SpawnedItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +128,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2494995475379968409}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c57cd25a653fff047b60393ee8c11279, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seconds: 0.2
   useTrigger: 1
+  instancingBehaviour: {fileID: 0}
 --- !u!114 &8043962882060763705
 MonoBehaviour:
   m_ObjectHideFlags: 0

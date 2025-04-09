@@ -383,6 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seconds: 0.2
   useTrigger: 1
+  instancingBehaviour: {fileID: 0}
 --- !u!54 &4753973035709709555
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -744,7 +745,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5815081400629102083}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c57cd25a653fff047b60393ee8c11279, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

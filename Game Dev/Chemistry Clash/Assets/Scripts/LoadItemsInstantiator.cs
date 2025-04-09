@@ -25,8 +25,19 @@ public class LoadItemsInstantiator : MonoBehaviour
             {
                 var instance = Instantiate(prefab, position, Quaternion.identity);
                 instance.tag = "SpawnedItem"; // Reapply tag
+
+                // Ensure the instance has a Rigidbody and set it to kinematic with no gravity
+                Rigidbody rb = instance.GetComponent<Rigidbody>();
+                if (rb == null)
+                {
+                    rb = instance.AddComponent<Rigidbody>(); // Add Rigidbody if missing
+                }
+                
+                // Add or get SpawnedItem component
                 var spawnedItem = instance.GetComponent<SpawnedItem>() ?? instance.AddComponent<SpawnedItem>();
                 spawnedItem.originalPrefab = prefab; // Reapply prefab reference
+                rb.isKinematic = false; 
+                rb.useGravity = true; 
                 yield return new WaitForSeconds(spawnDelay); // Stagger instantiation
             }
         }

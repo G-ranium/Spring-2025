@@ -10,6 +10,7 @@ public class SpawnData : ScriptableObject
         public GameObject prefab;
         public Vector3 position;
 
+        // Simplified constructor: no conditional logic here
         public SpawnEntry(GameObject prefab, Vector3 position)
         {
             this.prefab = prefab;
@@ -20,16 +21,18 @@ public class SpawnData : ScriptableObject
     [SerializeField]
     private List<SpawnEntry> spawnEntries = new List<SpawnEntry>();
 
-    // Clear and populate from a list of entries
+    // Clear and populate from a list of entries, rejecting Y > 16.25
     public void SetSpawnEntries(List<(GameObject prefab, Vector3 position)> entries)
     {
         spawnEntries.Clear();
         foreach (var (prefab, position) in entries)
         {
-            if (prefab != null)
+            // Only add if prefab is valid and Y position is below 16.25
+            if (prefab != null && position.y < 16.25f)
             {
                 spawnEntries.Add(new SpawnEntry(prefab, position));
             }
+            // If Y >= 16.25, simply skip adding it (no action needed)
         }
     }
 
